@@ -3,7 +3,7 @@ Birthday Surprise Script
 ========================== */
 
 
-const PASSWORD = "2004";
+const PASSWORD = "2003";
 
 
 const lockScreen = document.getElementById("lockScreen");
