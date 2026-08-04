@@ -305,42 +305,29 @@ letterBtn.addEventListener("click", () => {
 const letterMessage = `Dear Ayesha ❤️
 
 
-Happy Birthday 🎂✨
+Happy Birthday! 🎂✨
 
+I can't really put into words how special you are to me, or how much this day means to me. All I know is that seeing your smile makes this day even more beautiful.
 
-Aaj ka din bohat special hai,
-kyun ke aaj ek bohat special insaan ka birthday hai.
+Aaj aap ka special din hai aur meri dil se dua hai ke Allah aap ki zindagi ko hamesha khushiyon, sukoon, kamyabi aur apni rehmat se bhar de.
 
+May Allah always protect you, guide you, and bless you with everything that brings genuine happiness to your heart.
 
-Meri dua hai ke Allah tumhari zindagi ko
-hamesha khushiyon,
-kamyaabi,
-sukoon aur pyari yaadon se bhar de.
+Har woh khwab jo aap dekhti hain, Allah usay poora kare, aur aap ki muskurahat hamesha isi tarah chamakti rahe. Allah kare aap ke chehre ki ye muskurahat kabhi kam na ho, aur aap ki zindagi hamesha pyare lamhon aur khushiyon se bhari rahe.
 
+Thank you for being such a wonderful person. Aap waqai har khushi ki haqdar hain.
 
-Tumhari muskurahat hamesha aise hi chamakti rahe,
-aur tumhari har ek dua qabool ho.
+Chahe zindagi humein kisi bhi raaste par le jaye, meri dua hamesha yehi rahegi ke Allah aap ko hamesha khush rakhe, har mushkil se mehfooz rakhe, aur har qadam par apni hifazat mein rakhe.
 
+Keep smiling, keep shining, and never stop believing in yourself.
 
-Zindagi ke har raste par Allah tumhara saath de,
-tumhe har mushkil se bachaye,
-aur tumhe woh sab kuch de
-jo tumhare dil ko khushi deta hai.
+Once again...
 
-
-Hamesha khush rehna,
-hamesha muskurate rehna,
-aur apni khoobsurat personality ko kabhi mat badalna.
-
-
-Once Again...
-
-Happy Birthday Ayesha ❤️🎉
-
+Happy Birthday, Ayesha. ❤️🎉
 
 With Best Wishes,
 
-❤️ Ghayoor`;
+❤️ Ghayoor
 
 
 
