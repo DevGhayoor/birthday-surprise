@@ -1,373 +1,446 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Happy Birthday Ayesha ❤️</title>
+    <title>Happy Birthday Ayesha ❤️</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
+
 
 <body>
 
 
-<!-- Background Effects -->
+    <!-- ==========================
+    Background Effects
+    ========================== -->
 
-<div id="stars"></div>
+    <div id="stars"></div>
 
-<div id="hearts"></div>
+    <div id="hearts"></div>
 
-<div id="petals"></div>
-
-
-<!-- ==========================
-Premium Lock Screen
-========================== -->
-
-<div id="lockScreen">
+    <div id="petals"></div>
 
 
-    <div class="lockBackground"></div>
+
+    <!-- ==========================
+    Premium Lock Screen
+    ========================== -->
+
+    <div id="lockScreen">
 
 
-    <div class="lockCard">
+        <div class="lockBackground"></div>
 
 
-        <div class="profileRing">
+        <div class="lockCard">
 
 
-            <img src="images/Asho.jpg" alt="Ayesha">
+            <div class="profileRing">
+
+
+                <img src="images/Asho.jpg" alt="Ayesha">
+
+
+            </div>
+
+
+            <h1>
+
+                Ayesha ❤️
+
+            </h1>
+
+
+            <p>
+
+                A Special Birthday Surprise Awaits You
+
+            </p>
+
+
+            <div class="passwordBox">
+
+
+                <input
+                    id="passwordInput"
+                    type="password"
+                    maxlength="4"
+                    inputmode="numeric"
+                    placeholder="Enter Password">
+
+
+            </div>
+
+
+            <button id="unlockBtn">
+
+                🔓 Unlock Surprise
+
+            </button>
+
+
+            <small id="errorText"></small>
 
 
         </div>
 
 
+    </div>
+
+
+
+    <!-- ==========================
+    Countdown
+    ========================== -->
+
+    <div id="countdown" class="hide">
+
+
+        <div class="countdownGlow"></div>
+
+
+        <div id="countdownNumber">
+
+            3
+
+        </div>
+
+
+        <p>
+
+            Get Ready... ❤️
+
+        </p>
+
+
+    </div>
+
+
+
+    <!-- ==========================
+    Loader
+    ========================== -->
+
+    <div id="loader" class="hide">
+
+
         <h1>
 
-            Ayesha ❤️
+            Preparing Your Surprise...
 
         </h1>
 
 
         <p>
 
-            A Special Birthday Surprise Awaits You
+            Please Wait ❤️
 
         </p>
 
 
-        <div class="passwordBox">
+    </div>
 
 
-            <input 
-            id="passwordInput"
-            type="password"
-            maxlength="4"
-            placeholder="Enter Password">
+
+    <!-- ==========================
+    Hero Section
+    ========================== -->
+
+    <section class="hero hide" id="hero">
+
+
+        <div class="glass">
+
+
+            <h3>
+
+                ✨ Happy Birthday ✨
+
+            </h3>
+
+
+            <h1>
+
+                Happy Birthday
+
+                <br>
+
+                Ayesha ❤️
+
+            </h1>
+
+
+            <p>
+
+                I can’t tell you how much you are special to me,
+                how much this day is special for me. ❤️
+
+                <br><br>
+
+                May your smile always shine brighter than the stars.
+
+                <br><br>
+
+                Today is your special day.
+
+                Enjoy every beautiful moment.
+
+            </p>
+
+
+            <button id="startBtn">
+
+                Open Your Surprise 🎁
+
+            </button>
 
 
         </div>
 
 
-        <button id="unlockBtn">
+    </section>
 
-            🔓 Unlock Surprise
 
-        </button>
 
+    <!-- ==========================
+    Surprise Section
+    ========================== -->
 
-        <small id="errorText"></small>
-
-
-    </div>
-
-
-</div>
-
-
-<!-- Loader -->
-
-
-<div id="loader" class="hide">
-
-
-    <h1>
-
-        Preparing Your Surprise...
-
-    </h1>
-
-
-    <p>
-
-        Please Wait ❤️
-
-    </p>
-
-
-</div>
-
-
-<!-- ==========================
-Hero Section
-========================== -->
-
-
-<section class="hero hide" id="hero">
-
-
-    <div class="glass">
-
-
-        <h3>
-
-            ✨ Happy Birthday ✨
-
-        </h3>
-
-
-        <h1>
-
-            Happy Birthday
-
-            <br>
-
-            Ayesha ❤️
-
-        </h1>
-
-
-        <p>
-
-            May your smile always shine brighter than the stars.
-
-            <br><br>
-
-            Today is your special day.
-
-            Enjoy every beautiful moment.
-
-        </p>
-
-
-        <button id="startBtn">
-
-            Open Your Surprise 🎁
-
-        </button>
-
-
-    </div>
-
-
-</section>
-<!-- ==========================
-Surprise Section
-========================== -->
-
-<section id="surprise" class="hide">
-
-
-    <h2>
-
-        🎂 Happy Birthday Ayesha 🎂
-
-    </h2>
-
-
-    <p class="wish">
-
-        Wishing you endless happiness,
-        success,
-        peace,
-        and beautiful memories.
-
-        <br><br>
-
-        May Allah bless you with everything
-        your heart wishes.
-
-        <br><br>
-
-        ✨ Stay Happy Always ✨
-
-    </p>
-
-
-
-    <!-- Cake -->
-
-    <div class="cake">
-
-
-        <div class="cakeTop"></div>
-
-
-        <div class="cakeMiddle"></div>
-
-
-        <div class="cakeBottom"></div>
-
-
-
-        <div class="candles">
-
-
-            <span class="candle">
-
-                <i class="flame"></i>
-
-            </span>
-
-
-            <span class="candle">
-
-                <i class="flame"></i>
-
-            </span>
-
-
-            <span class="candle">
-
-                <i class="flame"></i>
-
-            </span>
-
-
-        </div>
-
-
-    </div>
-
-
-
-    <button id="blowBtn">
-
-        🕯 Blow Candles
-
-    </button>
-
-
-
-    <button id="letterBtn">
-
-        💌 Open Letter
-
-    </button>
-
-
-
-    <!-- Letter -->
-
-
-    <div id="letter" class="hide">
+    <section id="surprise" class="hide">
 
 
         <h2>
 
-            💌 A Letter For You
+            🎂 Happy Birthday Ayesha 🎂
 
         </h2>
 
 
-        <p>
+        <p class="wish">
 
-
-Dear Ayesha ❤️
-
-
-Happy Birthday!
-
-
-I pray that your life is always filled with happiness,
-peace, success and beautiful moments.
-
-
-May Allah always protect you,
-guide you,
-and bless you with everything that brings joy to your heart.
-
-
-Keep smiling and stay happy always.
-
-
-Have an amazing birthday.
-
-
-Best Wishes,
-
-
-❤️ Ghayoor
-
-
-        </p>
-
-
-    </div>
-
-
-
-</section>
-
-
-
-<!-- ==========================
-Final Screen
-========================== -->
-
-
-<section id="ending" class="hide">
-
-
-    <div class="glass">
-
-
-        <h1>
-
-            ❤️ Ayesha ❤️
-
-        </h1>
-
-
-        <p>
-
-            May your every dream come true.
+            Wishing you endless happiness,
+            success,
+            peace,
+            and beautiful memories.
 
             <br><br>
 
-            Happy Birthday Once Again 🎂
+            May Allah bless you with everything
+            your heart wishes.
+
+            <br><br>
+
+            ✨ Stay Happy Always ✨
 
         </p>
 
 
-        <h3>
 
-            Made With ❤️ By Ghayoor
+        <!-- Cake -->
 
-        </h3>
-
-
-    </div>
+        <div class="cake">
 
 
-</section>
+            <div class="cakeTop"></div>
+
+
+            <div class="cakeMiddle"></div>
+
+
+            <div class="cakeBottom"></div>
 
 
 
-<script src="script.js"></script>
+            <div class="candles">
+
+
+                <span class="candle">
+
+                    <i class="flame"></i>
+
+                </span>
+
+
+                <span class="candle">
+
+                    <i class="flame"></i>
+
+                </span>
+
+
+                <span class="candle">
+
+                    <i class="flame"></i>
+
+                </span>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <button id="blowBtn">
+
+            🕯 Blow Candles
+
+        </button>
+
+
+
+        <button id="letterBtn">
+
+            💌 Open Letter
+
+        </button>
+
+
+
+        <!-- ==========================
+        Letter
+        ========================== -->
+
+        <div id="letter" class="hide">
+
+
+            <h2>
+
+                💌 A Letter For You
+
+            </h2>
+
+
+            <p>
+
+
+                Dear Ayesha ❤️
+
+
+                Happy Birthday! 🎂✨
+
+
+                I pray that your life is always filled with happiness,
+                peace, success and beautiful moments.
+
+
+                Aaj aap ka special din hai aur meri dil se dua hai ke Allah
+                aap ki zindagi ko hamesha khushiyon, sukoon, kamyabi aur apni
+                rehmat se bhar de.
+
+
+                May Allah always protect you, guide you, and bless you with
+                everything that brings genuine happiness to your heart.
+
+
+                Har woh khwab jo aap dekhti hain, Allah usay poora kare,
+                aur aap ki muskurahat hamesha isi tarah chamakti rahe.
+
+
+                Allah kare aap ke chehre ki ye muskurahat kabhi kam na ho,
+                aur aap ki zindagi hamesha pyare lamhon aur khushiyon se
+                bhari rahe.
+
+
+                Thank you for being such a wonderful person.
+                Aap waqai har khushi ki haqdar hain.
+
+
+                Chahe zindagi humein kisi bhi raaste par le jaye,
+                meri dua hamesha yehi rahegi ke Allah aap ko hamesha
+                khush rakhe, har mushkil se mehfooz rakhe, aur har qadam
+                par apni hifazat mein rakhe.
+
+
+                Keep smiling, keep shining, and never stop believing
+                in yourself.
+
+
+                Once again...
+
+
+                Happy Birthday, Ayesha. ❤️🎉
+
+
+                With Best Wishes,
+
+
+                ❤️ Ghayoor
+
+
+            </p>
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+    <!-- ==========================
+    Final Screen
+    ========================== -->
+
+    <section id="ending" class="hide">
+
+
+        <div class="glass">
+
+
+            <h1>
+
+                ❤️ Ayesha ❤️
+
+            </h1>
+
+
+            <p>
+
+                May your every dream come true.
+
+                <br><br>
+
+                Happy Birthday Once Again 🎂
+
+            </p>
+
+
+            <h3>
+
+                Made With ❤️ By Ghayoor
+
+            </h3>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <script src="script.js"></script>
 
 
 </body>
 
 </html>
+```
