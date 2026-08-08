@@ -1,168 +1,1054 @@
 /* ==========================
-   FINAL COUNTDOWN FIX
+   BIRTHDAY SURPRISE
+   COMPLETE RESPONSIVE CSS
 ========================== */
 
-#countdown {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: rgba(8, 8, 23, 0.96);
-    backdrop-filter: blur(20px);
-    z-index: 999999;
-    overflow: hidden;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-#countdown.hide {
-    display: none !important;
+html{
+    scroll-behavior:smooth;
 }
 
-#countdownNumber {
-    position: relative;
-    z-index: 2;
-    font-size: clamp(100px, 22vw, 240px);
-    line-height: 1;
-    font-weight: 800;
-    color: #ffffff;
-    opacity: 0;
-    transform: scale(0.2);
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    font-family:"Poppins",sans-serif;
+    color:white;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(255,77,109,.16),transparent 30%),
+        radial-gradient(circle at 80% 80%,rgba(108,99,255,.18),transparent 30%),
+        linear-gradient(135deg,#080817,#11112b,#080817);
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+button{
+    -webkit-tap-highlight-color:transparent;
+}
+
+
+/* ==========================
+   HIDE
+========================== */
+
+.hide{
+    display:none !important;
+}
+
+
+/* ==========================
+   BACKGROUND EFFECTS
+========================== */
+
+#stars,
+#hearts,
+#petals{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+#stars{
+    z-index:1;
+}
+
+#hearts{
+    z-index:2;
+}
+
+#petals{
+    z-index:3;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    border-radius:50%;
+    background:white;
+    opacity:.7;
+    animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{
+        opacity:.2;
+        transform:scale(.7);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.5);
+    }
+}
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    font-size:20px;
+    animation:heartFloat linear forwards;
+    filter:drop-shadow(0 0 8px rgba(255,77,109,.6));
+}
+
+@keyframes heartFloat{
+
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+.petal{
+    position:absolute;
+    top:-50px;
+    font-size:22px;
+    animation:petalFall linear forwards;
+}
+
+@keyframes petalFall{
+
+    0%{
+        transform:translateY(-50px) rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+
+/* ==========================
+   LOCK SCREEN
+========================== */
+
+#lockScreen{
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.lockBackground{
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at 50% 30%,rgba(255,77,109,.22),transparent 35%),
+        radial-gradient(circle at 20% 80%,rgba(108,99,255,.2),transparent 35%),
+        rgba(5,5,18,.96);
+    backdrop-filter:blur(15px);
+}
+
+.lockCard{
+    position:relative;
+    z-index:2;
+    width:min(430px,100%);
+    padding:45px 35px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:32px;
+    background:rgba(255,255,255,.1);
+    backdrop-filter:blur(25px);
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.5),
+        0 0 50px rgba(255,77,109,.12);
+}
+
+.profileRing{
+    width:155px;
+    height:155px;
+    margin:0 auto;
+    padding:6px;
+    border-radius:50%;
+    background:linear-gradient(
+        135deg,
+        #ff4d6d,
+        #ff758f,
+        #6c63ff
+    );
+    box-shadow:
+        0 0 30px rgba(255,77,109,.45);
+}
+
+.profileRing img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    border-radius:50%;
+    border:4px solid #11112b;
+}
+
+.lockCard h1{
+    margin-top:25px;
+    font-size:34px;
+}
+
+.lockCard p{
+    margin-top:10px;
+    color:rgba(255,255,255,.75);
+    font-size:15px;
+}
+
+.passwordBox{
+    margin-top:30px;
+}
+
+.passwordBox input{
+    width:100%;
+    padding:16px 18px;
+    border:1px solid rgba(255,255,255,.2);
+    outline:none;
+    border-radius:16px;
+    background:rgba(0,0,0,.2);
+    color:white;
+    text-align:center;
+    font-size:18px;
+    letter-spacing:5px;
+    transition:.3s;
+}
+
+.passwordBox input:focus{
+    border-color:#ff4d6d;
+    box-shadow:0 0 20px rgba(255,77,109,.2);
+}
+
+.passwordBox input::placeholder{
+    color:rgba(255,255,255,.45);
+    letter-spacing:1px;
+}
+
+#unlockBtn{
+    width:100%;
+    margin-top:18px;
+    padding:16px 25px;
+    border:0;
+    border-radius:50px;
+    color:white;
+    background:linear-gradient(
+        135deg,
+        #ff4d6d,
+        #ff758f
+    );
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(255,77,109,.3);
+    transition:.3s;
+}
+
+#unlockBtn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 40px rgba(255,77,109,.45);
+}
+
+#unlockBtn:disabled{
+    opacity:.7;
+    cursor:default;
+}
+
+#errorText{
+    display:block;
+    min-height:24px;
+    margin-top:12px;
+    color:#ff758f;
+}
+
+
+/* ==========================
+   COUNTDOWN
+========================== */
+
+#countdown{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,77,109,.15),
+            transparent 35%
+        ),
+        rgba(5,5,18,.97);
+    backdrop-filter:blur(20px);
+}
+
+#countdown.hide{
+    display:none !important;
+}
+
+.countdownGlow{
+    position:absolute;
+    width:min(360px,70vw);
+    height:min(360px,70vw);
+    border-radius:50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,77,109,.2),
+            transparent 70%
+        );
+    animation:countdownGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes countdownGlow{
+
+    from{
+        transform:scale(.85);
+        opacity:.5;
+    }
+
+    to{
+        transform:scale(1.2);
+        opacity:1;
+    }
+}
+
+#countdownNumber{
+    position:relative;
+    z-index:2;
+    font-size:clamp(100px,22vw,240px);
+    line-height:1;
+    font-weight:800;
+    color:white;
+    opacity:0;
+    transform:scale(.2);
     text-shadow:
-        0 0 15px rgba(255, 255, 255, 0.9),
-        0 0 35px rgba(255, 77, 109, 0.9),
-        0 0 70px rgba(108, 99, 255, 0.8);
+        0 0 15px white,
+        0 0 35px #ff4d6d,
+        0 0 70px #6c63ff;
 }
 
-#countdownNumber.countdownAnimate {
-    animation: countdownNumberAnimation 0.95s
-        cubic-bezier(.17,.67,.35,1.25) forwards;
+#countdownNumber.countdownAnimate{
+    animation:
+        countdownNumberAnimation
+        .95s
+        cubic-bezier(.17,.67,.35,1.25)
+        forwards;
 }
 
-@keyframes countdownNumberAnimation {
+@keyframes countdownNumberAnimation{
 
-    0% {
-        opacity: 0;
-        transform: scale(0.2);
-        filter: blur(12px);
+    0%{
+        opacity:0;
+        transform:scale(.2);
+        filter:blur(12px);
     }
 
-    25% {
-        opacity: 1;
-        transform: scale(1.15);
-        filter: blur(0);
+    25%{
+        opacity:1;
+        transform:scale(1.15);
+        filter:blur(0);
     }
 
-    55% {
-        opacity: 1;
-        transform: scale(1);
+    55%{
+        opacity:1;
+        transform:scale(1);
     }
 
-    100% {
-        opacity: 0;
-        transform: scale(1.55);
-        filter: blur(8px);
+    100%{
+        opacity:0;
+        transform:scale(1.55);
+        filter:blur(8px);
     }
-
 }
 
-#countdown p {
-    position: relative;
-    z-index: 2;
-    margin-top: 25px;
-    font-size: 18px;
-    letter-spacing: 2px;
-    color: #ffffff;
-}
-
-
-/* ==========================
-   MOBILE COUNTDOWN
-========================== */
-
-@media (max-width: 600px) {
-
-    #countdownNumber {
-        font-size: clamp(90px, 32vw, 170px);
-    }
-
-    #countdown p {
-        font-size: 14px;
-        padding: 0 20px;
-    }
-
+#countdown p{
+    position:relative;
+    z-index:2;
+    margin-top:25px;
+    color:white;
+    font-size:18px;
+    letter-spacing:2px;
 }
 
 
 /* ==========================
-   PREVENT RANDOM TEXT
+   LOADER
 ========================== */
 
-body {
-    overflow-x: hidden;
+#loader{
+    position:fixed;
+    inset:0;
+    z-index:9990;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    text-align:center;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,77,109,.12),
+            transparent 40%
+        ),
+        #080817;
 }
 
-html,
-body {
-    width: 100%;
-    min-height: 100%;
+#loader h1{
+    font-size:35px;
+    animation:loaderPulse 1.5s ease-in-out infinite alternate;
+}
+
+#loader p{
+    margin-top:15px;
+    color:rgba(255,255,255,.7);
+    font-size:17px;
+}
+
+@keyframes loaderPulse{
+
+    from{
+        opacity:.55;
+        transform:scale(.98);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 
 
 /* ==========================
-   MOBILE HERO FIX
+   HERO
 ========================== */
 
-@media (max-width: 450px) {
+.hero{
+    position:relative;
+    z-index:10;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px 20px;
+}
 
-    .hero {
-        min-height: 100svh;
-        padding: 20px 12px;
+.glass{
+    width:min(900px,100%);
+    padding:60px 45px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:35px;
+    background:rgba(255,255,255,.1);
+    backdrop-filter:blur(25px);
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.4),
+        0 0 50px rgba(255,77,109,.08);
+}
+
+.glass h3{
+    margin-bottom:20px;
+    color:#ffd166;
+    font-size:25px;
+}
+
+.glass h1{
+    font-size:clamp(40px,6vw,65px);
+    line-height:1.2;
+    background:linear-gradient(
+        135deg,
+        #fff,
+        #ff758f
+    );
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.glass p{
+    margin-top:25px;
+    color:rgba(255,255,255,.8);
+    font-size:17px;
+    line-height:2;
+}
+
+#startBtn{
+    margin-top:35px;
+    padding:17px 35px;
+    border:0;
+    border-radius:50px;
+    color:white;
+    background:linear-gradient(
+        135deg,
+        #ff4d6d,
+        #ff758f
+    );
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 12px 35px rgba(255,77,109,.35);
+    transition:.3s;
+}
+
+#startBtn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 18px 45px rgba(255,77,109,.5);
+}
+
+
+/* ==========================
+   SURPRISE
+========================== */
+
+#surprise{
+    position:relative;
+    z-index:10;
+    min-height:100vh;
+    padding:100px 20px;
+    text-align:center;
+}
+
+#surprise h2{
+    font-size:45px;
+    color:#ffd166;
+}
+
+.wish{
+    max-width:700px;
+    margin:25px auto;
+    color:rgba(255,255,255,.8);
+    font-size:18px;
+    line-height:2;
+}
+
+
+/* ==========================
+   CAKE
+========================== */
+
+.cake{
+    position:relative;
+    width:260px;
+    height:260px;
+    margin:80px auto 50px;
+}
+
+.cakeBottom{
+    position:absolute;
+    bottom:20px;
+    left:0;
+    width:260px;
+    height:70px;
+    border-radius:20px;
+    background:#ff4d6d;
+    box-shadow:0 15px 25px rgba(0,0,0,.25);
+}
+
+.cakeMiddle{
+    position:absolute;
+    bottom:80px;
+    left:20px;
+    width:220px;
+    height:70px;
+    border-radius:18px;
+    background:#ffd166;
+}
+
+.cakeTop{
+    position:absolute;
+    bottom:145px;
+    left:45px;
+    width:170px;
+    height:55px;
+    border-radius:18px;
+    background:white;
+}
+
+
+/* ==========================
+   CANDLES
+========================== */
+
+.candles{
+    position:absolute;
+    bottom:195px;
+    left:50%;
+    display:flex;
+    gap:25px;
+    transform:translateX(-50%);
+}
+
+.candle{
+    position:relative;
+    width:12px;
+    height:50px;
+    border-radius:10px;
+    background:white;
+}
+
+.flame{
+    position:absolute;
+    top:-18px;
+    left:50%;
+    width:15px;
+    height:22px;
+    border-radius:50%;
+    background:#ffd166;
+    box-shadow:0 0 20px orange;
+    transform:translateX(-50%);
+    animation:flicker .3s infinite alternate;
+}
+
+@keyframes flicker{
+
+    from{
+        transform:translateX(-50%) scale(1);
     }
 
-    .glass {
-        width: 100%;
-        max-width: 100%;
-        padding: 30px 18px;
+    to{
+        transform:translateX(-50%) scale(.75);
+    }
+}
+
+.off .flame{
+    display:none;
+}
+
+
+/* ==========================
+   BUTTONS
+========================== */
+
+#blowBtn,
+#letterBtn{
+    margin:20px 10px;
+    padding:16px 35px;
+    border:0;
+    border-radius:50px;
+    color:white;
+    background:linear-gradient(
+        135deg,
+        #ff4d6d,
+        #ff758f
+    );
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#blowBtn:hover,
+#letterBtn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(255,77,109,.45);
+}
+
+#blowBtn:disabled{
+    cursor:default;
+    opacity:.8;
+}
+
+
+/* ==========================
+   LETTER
+========================== */
+
+#letter{
+    width:100%;
+    max-width:850px;
+    margin:60px auto;
+    padding:45px;
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:30px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(20px);
+    box-shadow:0 25px 50px rgba(0,0,0,.3);
+}
+
+#letter h2{
+    margin-bottom:25px;
+    font-size:35px;
+}
+
+#letter p{
+    overflow-wrap:anywhere;
+    color:rgba(255,255,255,.9);
+    font-size:18px;
+    line-height:2;
+    text-align:left;
+    white-space:pre-line;
+}
+
+
+/* ==========================
+   ENDING
+========================== */
+
+#ending{
+    position:relative;
+    z-index:10;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px 20px;
+    text-align:center;
+}
+
+#ending h1{
+    font-size:60px;
+}
+
+#ending p{
+    margin:25px 0;
+    font-size:20px;
+    line-height:2;
+}
+
+#ending h3{
+    color:#ffd166;
+    font-size:25px;
+}
+
+
+/* ==========================
+   TABLET
+========================== */
+
+@media(max-width:768px){
+
+    .lockCard{
+        width:calc(100% - 35px);
+        padding:35px 22px;
+        border-radius:28px;
     }
 
-    .glass h1 {
-        font-size: clamp(30px, 9vw, 38px);
+    .profileRing{
+        width:140px;
+        height:140px;
     }
 
-    .glass p {
-        font-size: 14px;
-        line-height: 1.8;
+    .lockCard h1{
+        font-size:30px;
     }
 
-    #startBtn {
-        width: 100%;
-        font-size: 15px;
+    .lockCard p{
+        font-size:14px;
     }
 
-    #surprise {
-        padding: 60px 14px;
+    .glass{
+        width:100%;
+        max-width:100%;
+        padding:45px 25px;
+        border-radius:28px;
     }
 
-    #surprise h2 {
-        font-size: clamp(25px, 8vw, 32px);
+    .glass h3{
+        font-size:21px;
     }
 
-    .wish {
-        font-size: 14px;
-        line-height: 1.8;
+    .glass h1{
+        font-size:38px;
     }
 
-    #letter {
-        padding: 25px 18px;
+    .glass p{
+        font-size:15px;
+        line-height:1.9;
     }
 
-    #letter p {
-        font-size: 14px;
-        line-height: 1.85;
+    #startBtn{
+        width:100%;
+        max-width:360px;
+        padding:15px 25px;
+        font-size:16px;
+    }
+
+    #surprise{
+        padding:80px 18px;
+    }
+
+    #surprise h2{
+        font-size:32px;
+    }
+
+    .wish{
+        font-size:16px;
+        line-height:1.9;
+    }
+
+    .cake{
+        margin:50px auto;
+        transform:scale(.8);
+    }
+
+    #letter{
+        margin-top:45px;
+        padding:30px 22px;
+    }
+
+    #letter h2{
+        font-size:28px;
+    }
+
+    #letter p{
+        font-size:16px;
+        line-height:1.9;
+    }
+
+    #blowBtn,
+    #letterBtn{
+        width:100%;
+        max-width:360px;
+        display:block;
+        margin:10px auto;
+    }
+
+    #ending h1{
+        font-size:38px;
+    }
+
+    #ending p{
+        font-size:17px;
+    }
+
+    #ending h3{
+        font-size:21px;
+    }
+
+}
+
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:450px){
+
+    body{
+        font-size:14px;
+    }
+
+    .lockCard{
+        width:calc(100% - 24px);
+        padding:28px 18px;
+    }
+
+    .profileRing{
+        width:115px;
+        height:115px;
+    }
+
+    .lockCard h1{
+        margin-top:18px;
+        font-size:27px;
+    }
+
+    .lockCard p{
+        font-size:13px;
+        line-height:1.6;
+    }
+
+    .passwordBox{
+        margin-top:22px;
+    }
+
+    .passwordBox input{
+        padding:14px;
+        font-size:16px;
+    }
+
+    #unlockBtn{
+        padding:14px;
+        font-size:15px;
+    }
+
+    #countdownNumber{
+        font-size:clamp(100px,35vw,160px);
+    }
+
+    #countdown p{
+        margin-top:20px;
+        padding:0 20px;
+        font-size:14px;
+        letter-spacing:1.5px;
+    }
+
+    .countdownGlow{
+        width:190px;
+        height:190px;
+    }
+
+    #loader{
+        padding:20px;
+    }
+
+    #loader h1{
+        font-size:25px;
+        line-height:1.4;
+    }
+
+    #loader p{
+        font-size:14px;
+    }
+
+    .hero{
+        min-height:100svh;
+        padding:20px 12px;
+    }
+
+    .glass{
+        padding:32px 18px;
+        border-radius:24px;
+    }
+
+    .glass h3{
+        margin-bottom:15px;
+        font-size:18px;
+    }
+
+    .glass h1{
+        font-size:clamp(30px,9vw,38px);
+    }
+
+    .glass p{
+        margin-top:20px;
+        font-size:14px;
+        line-height:1.8;
+    }
+
+    #startBtn{
+        width:100%;
+        margin-top:25px;
+        padding:14px 18px;
+        font-size:15px;
+    }
+
+    #surprise{
+        padding:65px 14px;
+    }
+
+    #surprise h2{
+        font-size:clamp(25px,8vw,32px);
+        line-height:1.3;
+    }
+
+    .wish{
+        font-size:14px;
+        line-height:1.8;
+    }
+
+    .cake{
+        height:210px;
+        margin:25px auto;
+        transform:scale(.62);
+    }
+
+    #blowBtn,
+    #letterBtn{
+        width:100%;
+        margin:8px 0;
+        padding:14px 18px;
+        font-size:14px;
+    }
+
+    #letter{
+        margin-top:40px;
+        padding:25px 18px;
+        border-radius:22px;
+    }
+
+    #letter h2{
+        font-size:24px;
+    }
+
+    #letter p{
+        font-size:14px;
+        line-height:1.85;
+    }
+
+    #ending{
+        min-height:100svh;
+        padding:20px 12px;
+    }
+
+    #ending h1{
+        font-size:clamp(30px,10vw,38px);
+    }
+
+    #ending p{
+        font-size:15px;
+        line-height:1.8;
+    }
+
+    #ending h3{
+        font-size:18px;
+    }
+
+}
+
+
+/* ==========================
+   VERY SMALL SCREENS
+========================== */
+
+@media(max-width:350px){
+
+    .lockCard{
+        padding:24px 14px;
+    }
+
+    .profileRing{
+        width:100px;
+        height:100px;
+    }
+
+    .lockCard h1{
+        font-size:24px;
+    }
+
+    .glass{
+        padding:28px 14px;
+    }
+
+    .glass h1{
+        font-size:28px;
+    }
+
+    .glass p{
+        font-size:13px;
+    }
+
+    #countdownNumber{
+        font-size:100px;
+    }
+
+    .cake{
+        transform:scale(.55);
     }
 
 }
